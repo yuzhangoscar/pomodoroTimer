@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍅 Pomodoro Timer</h1>
+            <p class="subtitle">Focus. Work. Rest. Repeat.</p>
+        </header>
+
+        <main>
+            <div class="timer-section">
+                <div class="timer-display">
+                    <div class="time-circle" id="timeCircle">
+                        <div class="time-text" id="timeText">25:00</div>
+                        <div class="session-type" id="sessionType">Work</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">Start</button>
+                    <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+                    <button id="resetBtn" class="btn btn-tertiary">Reset</button>
+                </div>
+
+                <div class="session-selector">
+                    <button class="session-btn active" data-type="work">Work (25min)</button>
+                    <button class="session-btn" data-type="short-break">Short Break (5min)</button>
+                    <button class="session-btn" data-type="long-break">Long Break (15min)</button>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="completedSessions">0</div>
+                        <div class="stat-label">Sessions Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalTime">0h 0m</div>
+                        <div class="stat-label">Total Focus Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="currentStreak">0</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Settings</h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="workDuration">Work Duration (minutes)</label>
+                        <input type="number" id="workDuration" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-item">
+                        <label for="shortBreakDuration">Short Break (minutes)</label>
+                        <input type="number" id="shortBreakDuration" min="1" max="30" value="5">
+                    </div>
+                    <div class="setting-item">
+                        <label for="longBreakDuration">Long Break (minutes)</label>
+                        <input type="number" id="longBreakDuration" min="1" max="60" value="15">
+                    </div>
+                    <div class="setting-item">
+                        <label for="soundEnabled">Sound Notifications</label>
+                        <input type="checkbox" id="soundEnabled" checked>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <audio id="notificationSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvGUdBDWOzPDRfSsEIHPE7+CUQw" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
